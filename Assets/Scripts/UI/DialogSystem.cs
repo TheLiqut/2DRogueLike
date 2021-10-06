@@ -14,8 +14,6 @@ public class DialogSystem : MonoBehaviour
     [Header("对话文件")]
     public TextAsset textFile;
     public int textIndex;
-    //[Header("头像")]
-    //public Sprite face_01, face_02, face_03, face_04, face_05;
 
     List<string> textList = new List<string>();
     private void OnEnable()
