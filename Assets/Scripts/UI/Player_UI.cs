@@ -35,13 +35,13 @@ public class Player_UI : MonoBehaviour
 
     public void UpdatePlayerHp(float _f)
     {
-        //Debug.Log("触发了受伤事件");
+        //Debug.Log("触发了受伤");
         showHpText.text = _f.ToString();
     }
 
     public void UpdatePlayerEx(int _i)
     {
-        //Debug.Log("触发了受伤事件");
+        //Debug.Log("触发了受伤");
         showExText.text = player.playerEx.ToString();
         //Debug.Log("触发了"+ player.theHp);
     }
