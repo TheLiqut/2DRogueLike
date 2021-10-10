@@ -140,7 +140,8 @@ public class PlayerLevelUp_Manager : MonoBehaviour
                         player.theLevel_ShootPower += 1;
                         player.saver.Saver();
                         currentLevelText.text = player.theLevel_ShootPower.ToString();
-                        Main_EventCenter.instance.E_OnPlayerExUp(-priceInt);
+                            player.shotGunBulletNum += (2 * player.theLevel_ShootPower);
+                            Main_EventCenter.instance.E_OnPlayerExUp(-priceInt);
                         }
                         else if (player.theLevel_ShootPower == maxLevel)
                         {

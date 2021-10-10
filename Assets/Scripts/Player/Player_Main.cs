@@ -34,6 +34,7 @@ public class Player_Main : Humanoid,ITakingDamage
     public GameObject targetMark;
     [Header("武器面板")]
     public GameObject playerBullet;
+    public GameObject playerRingBullet;
     public int bulletNum;
     //public Transform fireTrans;
     public Transform fireTrans;
@@ -42,11 +43,28 @@ public class Player_Main : Humanoid,ITakingDamage
     public float FireRat;
     public float sourceFireRat;
     private float timer;
+    [Header("散射子弹")]
+    public int shotGunBulletNum;
+    public enum WeapenMod {
+        com,
+        randomShotGun,
+        ringGun
+    };
+    public enum SpeState
+    {
+        none,
+        killHeal,
+        AutoHeal
+    };
+    [Header("武器模式")]
+    public WeapenMod weapenMod;
     [Header("等级")]
     public int theLevel_Hp;
     public int theLevel_ShootSpeed;
     public int theLevel_ShootPower;
     public int theLevel_AttackPower;
+    [Header("特殊状态")]
+    public SpeState speState;
 
     private void Awake()
     {
@@ -73,6 +91,7 @@ public class Player_Main : Humanoid,ITakingDamage
         }
         attackSpeed = speed * 7;
         sourceFireRat = FireRat;
+        Main_EventCenter.instance.onEnemyDead += EnemyDeadCheckState;
     }
 
     // Update is called once per frame
@@ -80,6 +99,7 @@ public class Player_Main : Humanoid,ITakingDamage
     {
         MainController();
         GunController();
+        CheckSpeState();
         playerImageBody.sortingOrder = -(int)transform.localPosition.y;
     }
 
@@ -176,7 +196,26 @@ public class Player_Main : Humanoid,ITakingDamage
 
     public void GunFire()
     {
-        if(targetEnemy != null)
+        switch (weapenMod)
+        {
+            case WeapenMod.com:
+                CommGunFire();
+                break;
+            case WeapenMod.randomShotGun:
+                RandomShotGunFire();
+                break;
+            case WeapenMod.ringGun:
+                RingGunFire();
+                break;
+            default:
+                break;
+        }
+        
+    }
+
+    private void CommGunFire()
+    {
+        if (targetEnemy != null)
         {
             timer += Time.deltaTime;
             if (timer > FireRat)
@@ -188,10 +227,90 @@ public class Player_Main : Humanoid,ITakingDamage
         }
     }
 
+    private void RandomShotGunFire()
+    {
+        List<GameObject> shotBullets = new List<GameObject>();
+        if (targetEnemy != null)
+        {
+            timer += Time.deltaTime;
+            float tempFireRat = FireRat * 4;
+            if (timer > tempFireRat)
+            {
+                for (int i = 0; i < (shotGunBulletNum-theLevel_ShootPower); i++)
+                {
+                    timer = 0;
+                    float tempGunSight = gunSight*3f;
+                    GameObject bullet = Instantiate(playerBullet, fireTrans.position, fireTrans.rotation * Quaternion.AngleAxis(Random.Range(0, tempGunSight), Vector3.forward));
+                    shotBullets.Add(bullet);
+                }
+                for (int i = 0; i < (shotGunBulletNum - theLevel_ShootPower); i++)
+                {
+                    shotBullets[i].GetComponent<Rigidbody2D>().AddForce(shotBullets[i].transform.right * firePower, ForceMode2D.Impulse);
+                }
+            }
+        }
+    }
+
+    private void RingGunFire()
+    {
+        if (targetEnemy != null)
+        {
+            timer += Time.deltaTime;
+            float tempFireRat = FireRat * 4;
+            if (timer > tempFireRat)
+            {
+                Vector3 Direction = this.transform.up;
+                Quaternion startQuaternion = Quaternion.AngleAxis(360 / shotGunBulletNum, Vector3.forward);
+
+                for (int j = 0; j < shotGunBulletNum; j++)
+                {
+                    timer = 0;
+                    GameObject bullet = Instantiate(playerRingBullet);
+                    bullet.transform.position = transform.position;
+                    bullet.transform.rotation = Quaternion.Euler(Direction);
+                    bullet.GetComponent<Rigidbody2D>().AddForce(new Vector3(bullet.transform.rotation.x, bullet.transform.rotation.y, bullet.transform.position.z) * (firePower*40), ForceMode2D.Impulse);
+                    Direction = startQuaternion * Direction;
+                }
+            }
+        }
+    }
+
     public void AN_ResetLastMoveVec()
     {
         lastX = 0;
         lastY = 0;
+    }
+
+    public void GunWeapenSwitcher(int _i)
+    {
+        switch (_i)
+        {
+            case 1:
+                weapenMod = WeapenMod.com;
+                break;
+            case 2:
+                weapenMod = WeapenMod.randomShotGun;
+                break;
+            case 3:
+                weapenMod = WeapenMod.ringGun;
+                break;
+        }
+    }
+
+    public void SpeStateSwitcher(int _i)
+    {
+        switch (_i)
+        {
+            case 1:
+                speState = SpeState.none;
+                break;
+            case 2:
+                speState = SpeState.killHeal;
+                break;
+            case 3:
+                speState = SpeState.AutoHeal;
+                break;
+        }
     }
 
     public void TakeDamage(float _f)
@@ -210,6 +329,42 @@ public class Player_Main : Humanoid,ITakingDamage
         {
             Main_EventCenter.instance.E_OnPlayerDead();
             theAn.Play("Dead" + selfID.ToString());
+        }
+    }
+
+    public void EnemyDeadCheckState()
+    {
+        switch (speState)
+        {
+            case SpeState.none:
+                break;
+            case SpeState.killHeal:
+                if (theHp < (10 + theLevel_Hp))
+                {
+                    theHp += 1;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void CheckSpeState()
+    {
+        switch (speState)
+        {
+            case SpeState.none:
+                break;
+            case SpeState.killHeal:
+                break;
+            case SpeState.AutoHeal:
+                if (theHp < (10 + theLevel_Hp))
+                {
+                    theHp += 0.1f*Time.deltaTime;
+                }
+                break;
+            default:
+                break;
         }
     }
 }

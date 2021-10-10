@@ -15,6 +15,7 @@ public class Player_LevelWorker : MonoBehaviour
             Debug.Log(player.theLevel_Hp);
             player.theHp += player.theLevel_Hp;
             player.FireRat -= player.theLevel_ShootSpeed * 0.01f;
+            player.shotGunBulletNum += (2*player.theLevel_ShootPower);
             started = true;
         }
         player.playerBullet = bulletUpdateList[player.theLevel_ShootPower];

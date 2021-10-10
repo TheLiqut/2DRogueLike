@@ -8,6 +8,7 @@ public class Enemy_Main : Humanoid,ITakingDamage
     public float speed;
     public Transform targetTrans;
     public GameObject enemyShowUpEffect;
+    //public Rigidbody2D theRB;
     public bool traking;
     public bool canNotRotate;
     public bool attacking;
@@ -23,6 +24,17 @@ public class Enemy_Main : Humanoid,ITakingDamage
     public GameObject playerWinPortal;
     public float phase2Line;
     public float sourcePhase2Line;
+    public enum EnemyMod
+    {
+        com,
+        dasher,
+    };
+    [Header("敌人模式")]
+    public EnemyMod enemyMod;
+    [Header("冲刺敌人")]
+    public bool tracked;
+    public bool speedUping;
+    public bool moveMod;
 
     void Start()
     {
@@ -35,7 +47,18 @@ public class Enemy_Main : Humanoid,ITakingDamage
 
     private void FixedUpdate()
     {
-            Track_Player();
+            
+        switch (enemyMod)
+        {
+            case EnemyMod.com:
+                Track_Player();
+                break;
+            case EnemyMod.dasher:
+                Track_Player();
+                break;
+            default:
+                break;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -43,8 +66,21 @@ public class Enemy_Main : Humanoid,ITakingDamage
         if(isDead != true && isWin != true)
         {
             CheckDeath();
-            FaceToPlayer();
-            AttackPlayer();
+            if(speedUping == false)
+            {
+                FaceToPlayer();
+            }
+            switch (enemyMod)
+            {
+                case EnemyMod.com:
+                    ComAttackPlayer();
+                    break;
+                case EnemyMod.dasher:
+                    DasherAttackPlayer();
+                    break;
+                default:
+                    break;
+            }
         }
         enemyImageBody.sortingOrder = -(int)transform.localPosition.y;
     }
@@ -55,7 +91,7 @@ public class Enemy_Main : Humanoid,ITakingDamage
         {
             if (traking == true && hurting != true &&attacking !=true)
             {
-                if(isFreezBoss == false)
+                if(isFreezBoss == false && speedUping == false)
                 {
                     theAn.Play("Run" + selfID.ToString());
                     transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetTrans.position, speed * Time.deltaTime);
@@ -80,12 +116,42 @@ public class Enemy_Main : Humanoid,ITakingDamage
         }
     }
 
-    public void AttackPlayer()
+    public void ComAttackPlayer()
     {
         if (attacking == true && hurting != true)
         {
-            Debug.Log("inRange");
+            //Debug.Log("inRange");
             theAn.Play("Attack" + selfID.ToString());
+        }
+    }
+
+    public void DasherAttackPlayer()
+    {
+        if (attacking == true && hurting != true)
+        {
+            if(tracked == false)
+            {
+                if(moveMod == true)
+                {
+                    theAn.Play("Attack" + selfID.ToString());
+                }
+                else
+                {
+                    theAn.Play("JumpBack" + selfID.ToString());
+                }
+                tracked = true;
+            }
+        }
+        if (speedUping == true)
+        {
+            if(moveMod == true)
+            {
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetTrans.position, (speed * 5) * Time.deltaTime);
+            }
+            if (moveMod == false)
+            {
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, targetTrans.position, -(speed * 2.5f) * Time.deltaTime);
+            }
         }
     }
 
@@ -133,12 +199,12 @@ public class Enemy_Main : Humanoid,ITakingDamage
     {
         if (theHp <= 0)
         {
+            Main_EventCenter.instance.E_OnEnemyDead();
             theAn.Play("Dead" + selfID.ToString());
             int outPut = Random.Range(givePlayerExMin, givePlayerExMax);
             player.playerEx += outPut;
             Main_EventCenter.instance.E_OnPlayerExUp(outPut);
             player.saver.Saver();
-            Main_EventCenter.instance.E_OnEnemyDead();
             if(isBoss == true)
             {
                 if (playerWinPortal != null)
@@ -161,5 +227,18 @@ public class Enemy_Main : Humanoid,ITakingDamage
     public void AN_Phase2LineReturn()
     {
         phase2Line = sourcePhase2Line;
+    }
+
+    public void AN_ChangeDashMod()
+    {
+        int temp = Random.Range(0, 3);
+        if (temp == 0|| temp == 1)
+        {
+            moveMod = true;
+        }
+        if (temp == 2)
+        {
+            moveMod = false;
+        }
     }
 }

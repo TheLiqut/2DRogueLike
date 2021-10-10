@@ -13,6 +13,7 @@ public class SceneEnterPoint : MonoBehaviour
         if (Player_Main.instance.transSceneCode == enterPointCode)
         {
             Player_Main.instance.transform.position = transform.position;
+            Main_EventCenter.instance.onEnemyDead += Player_Main.instance.EnemyDeadCheckState;
         }
     }
 }
