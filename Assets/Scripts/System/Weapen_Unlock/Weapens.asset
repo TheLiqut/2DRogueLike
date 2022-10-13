@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1441ff3d6c07c664f8bd1ca7cba9cea3, type: 3}
+  m_Name: Weapens
+  m_EditorClassIdentifier: 
+  weapList:
+  - weapenName:
+    - "\u624B\u67AA"
+    - Hand Gun
+    weapNameFileMain: {fileID: 4900000, guid: 1e8c9b0fc8bfc444f83f4b57ce09c2c3, type: 3}
+    weapenInfo:
+    - "\u666E\u901A\u624B\u67AA"
+    - Just a hand gun
+    weapInfoFileMain: {fileID: 4900000, guid: 40d3eec3da6124d4c94a0f2c7888b400, type: 3}
+    weapenID: 0
+    weapenType: 0
+    _gunSight: 5
+    _firePower: 50
+    _FireRat: 0.3
+    _shotGunBulletNum: 1
+    _weapenPrice: 100
+    _bullet: {fileID: 8784939957708941471, guid: fcb795453b8cca64ab160f21c8da4f88,
+      type: 3}
+    _unLocked: 0
+  - weapenName:
+    - "\u51B2\u950B\u67AA"
+    - Sub Gun
+    weapNameFileMain: {fileID: 4900000, guid: 168cd5e1fbf76e84ebbe5d28399f630c, type: 3}
+    weapenInfo:
+    - "\u666E\u901A\u51B2\u950B\u67AA"
+    - Just a Sub Gun
+    weapInfoFileMain: {fileID: 4900000, guid: 75df39ae7fbeaeb41b1d103bf91b32c0, type: 3}
+    weapenID: 1
+    weapenType: 0
+    _gunSight: 10
+    _firePower: 75
+    _FireRat: 0.1
+    _shotGunBulletNum: 1
+    _weapenPrice: 100
+    _bullet: {fileID: 8784939957708941471, guid: 28ca832d246998b4aad9868143c7b812,
+      type: 3}
+    _unLocked: 0
+  - weapenName:
+    - "\u52A0\u5F3A\u51B2\u950B\u67AA"
+    - Powerful Sub Gun
+    weapNameFileMain: {fileID: 4900000, guid: 1861496238127304dadaded1c8cfc591, type: 3}
+    weapenInfo:
+    - "\u52A0\u5F3A\u51B2\u950B\u67AA"
+    - Just a Powerful Sub Gun
+    weapInfoFileMain: {fileID: 4900000, guid: 67f2962d449e8df4c826aa737c8fdc17, type: 3}
+    weapenID: 2
+    weapenType: 0
+    _gunSight: 12
+    _firePower: 50
+    _FireRat: 0.1
+    _shotGunBulletNum: 1
+    _weapenPrice: 100
+    _bullet: {fileID: 8784939957708941471, guid: 6f9da35e9e8ec8349b93bfe0b4b69890,
+      type: 3}
+    _unLocked: 0
+  - weapenName:
+    - "\u9730\u5F39\u67AA"
+    - ShotGun
+    weapNameFileMain: {fileID: 4900000, guid: 25d2014f187e2e744b469c699b479d7c, type: 3}
+    weapenInfo:
+    - "\u4E00\u628A\u9730\u5F39\u67AA"
+    - Just a ShotGun
+    weapInfoFileMain: {fileID: 4900000, guid: 158c79098f1f823478ce0d60b9a82a53, type: 3}
+    weapenID: 3
+    weapenType: 1
+    _gunSight: 12
+    _firePower: 50
+    _FireRat: 0.2
+    _shotGunBulletNum: 5
+    _weapenPrice: 100
+    _bullet: {fileID: 8784939957708941471, guid: 28ca832d246998b4aad9868143c7b812,
+      type: 3}
+    _unLocked: 0
+  - weapenName:
+    - "\u72D9\u51FB\u67AA"
+    - SnaperGun
+    weapNameFileMain: {fileID: 4900000, guid: 8d125c7140a7d604a870cb938db3fee4, type: 3}
+    weapenInfo:
+    - "\u4E00\u628A\u72D9\u51FB\u67AA"
+    - Just a SnaperGun
+    weapInfoFileMain: {fileID: 4900000, guid: 4fa4b0a7486e72a46a4f46f670d7ff22, type: 3}
+    weapenID: 4
+    weapenType: 0
+    _gunSight: 2
+    _firePower: 150
+    _FireRat: 1
+    _shotGunBulletNum: 1
+    _weapenPrice: 100
+    _bullet: {fileID: 8784939957708941471, guid: 249b6f6d7e15f16409d1afc4aa5a2642,
+      type: 3}
+    _unLocked: 0
+  - weapenName:
+    - "\u73AF\u5F62\u67AA"
+    - RingGun
+    weapNameFileMain: {fileID: 4900000, guid: cd8bf30cabe59264ba8ea45d462189f6, type: 3}
+    weapenInfo:
+    - "\u4E00\u628A\u73AF\u5F62\u67AA"
+    - Just a RingGun
+    weapInfoFileMain: {fileID: 4900000, guid: 872c1bb031821ff4595123792715dfda, type: 3}
+    weapenID: 5
+    weapenType: 2
+    _gunSight: 2
+    _firePower: 30
+    _FireRat: 0.2
+    _shotGunBulletNum: 10
+    _weapenPrice: 100
+    _bullet: {fileID: 8784939957708941471, guid: 8c92c7ca79999154aa2c3a31e1dc2ed1,
+      type: 3}
+    _unLocked: 0

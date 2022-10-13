@@ -2251,6 +2251,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnterNextScene
       objectReference: {fileID: 0}
+    - target: {fileID: 1229612552531455913, guid: 1452edd2b78000c4f8e232315772f020,
+        type: 3}
+      propertyPath: fileMain
+      value: 
+      objectReference: {fileID: 4900000, guid: 9941bf9c2aff8da4b9b666de4516f76c, type: 3}
+    - target: {fileID: 1864905703983004694, guid: 1452edd2b78000c4f8e232315772f020,
+        type: 3}
+      propertyPath: fileMain
+      value: 
+      objectReference: {fileID: 4900000, guid: 0da4f906c3cb54a4e99614b6e103ba86, type: 3}
     - target: {fileID: 4885703173216015223, guid: 1452edd2b78000c4f8e232315772f020,
         type: 3}
       propertyPath: m_Size.x

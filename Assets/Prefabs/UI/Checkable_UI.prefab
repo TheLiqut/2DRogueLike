@@ -140,6 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7624936462794957031}
   - component: {fileID: 7624936462794957025}
+  - component: {fileID: 6097647883053993238}
   - component: {fileID: 7624936462794957024}
   m_Layer: 0
   m_Name: Gang
@@ -175,6 +176,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7624936462794957030}
   m_CullTransparentMesh: 0
+--- !u!114 &6097647883053993238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624936462794957030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938acffa610351748aade8a23932fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileMain: {fileID: 0}
+  textMain: {fileID: 7624936462794957024}
 --- !u!114 &7624936462794957024
 MonoBehaviour:
   m_ObjectHideFlags: 0

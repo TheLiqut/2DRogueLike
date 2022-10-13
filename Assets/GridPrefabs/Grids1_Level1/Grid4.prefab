@@ -2097,6 +2097,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7231423757335651693}
     m_Modifications:
+    - target: {fileID: 614641452199150724, guid: e0bc6584c0ee57f4a81687a130a5fd96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2346820491738339712, guid: e0bc6584c0ee57f4a81687a130a5fd96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2186,6 +2191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6218215098759451364, guid: e0bc6584c0ee57f4a81687a130a5fd96,
+        type: 3}
+      propertyPath: Front_setPointList.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8725532542878614278, guid: e0bc6584c0ee57f4a81687a130a5fd96,
         type: 3}

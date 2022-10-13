@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Enemy_DanMu : MonoBehaviour
 {
+    public Enemy_Main enemy;
+    public float toPhase2Line;
     public GameObject bossBullet;
     public float firePower;
     public int fire1Round;
@@ -31,11 +33,13 @@ public class Enemy_DanMu : MonoBehaviour
         
     }
 
-    public void AN_ChangeToMod2()
+    private void Update()
     {
-        fireMod = 2;
+        if(enemy.theHp <= toPhase2Line)
+        {
+            fireMod = 2;
+        }
     }
-
 
     IEnumerator Fire1()
     {

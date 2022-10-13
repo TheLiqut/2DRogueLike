@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 736432606892613524}
   - component: {fileID: 736432606892613522}
   - component: {fileID: 736432606892613523}
+  - component: {fileID: 540588652087023520}
   m_Layer: 0
   m_Name: Gang
   m_TagString: Untagged
@@ -208,6 +209,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u53EF\u4E92\u52A8"
+--- !u!114 &540588652087023520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736432606892613525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938acffa610351748aade8a23932fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileMain: {fileID: 4900000, guid: 6c71d774c9d447e4698e99e57813e864, type: 3}
+  textMain: {fileID: 736432606892613523}
 --- !u!1 &7914855375192986683
 GameObject:
   m_ObjectHideFlags: 0

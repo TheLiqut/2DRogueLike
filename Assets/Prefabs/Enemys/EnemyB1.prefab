@@ -268,9 +268,10 @@ MonoBehaviour:
   targetTrans: {fileID: 0}
   enemyShowUpEffect: {fileID: 6657521142272973144, guid: 5488177536c489a4db6808d90bbcd704,
     type: 3}
+  theRB: {fileID: 0}
   traking: 0
+  atking: 0
   canNotRotate: 0
-  attacking: 1
   antiTraking: 0
   hurting: 0
   isDead: 0
@@ -278,11 +279,7 @@ MonoBehaviour:
   givePlayerExMin: 550
   givePlayerExMax: 600
   enemyImageBody: {fileID: 1695490228545865533}
-  isFreezBoss: 1
-  isBoss: 1
-  playerWinPortal: {fileID: 4155621469332232991}
-  phase2Line: 15
-  sourcePhase2Line: 0
+  currentStateShow: 
 --- !u!114 &7600698502150817911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5742860570194343245}
-  - component: {fileID: 1540537260816716982}
+  - component: {fileID: 1620038238430979221}
   - component: {fileID: 5569432717398070407}
   m_Layer: 12
   m_Name: AttackRange
@@ -405,7 +402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5742860570194343245
 Transform:
   m_ObjectHideFlags: 0
@@ -420,7 +417,7 @@ Transform:
   m_Father: {fileID: 728382346540842314}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1540537260816716982
+--- !u!114 &1620038238430979221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -429,11 +426,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2459003902791433572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3ec4c2b4b0d2df4e868ba5fc7c2e8c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 94d62fdceb4898041bf557211cb65136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMain: {fileID: 1381705068474104343}
-  range_Atk: 1
 --- !u!58 &5569432717398070407
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -449,7 +445,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 12
+  m_Radius: 37.186325
 --- !u!50 &6327560769905871568
 Rigidbody2D:
   serializedVersion: 4
@@ -569,7 +565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3150219272571009709
 Transform:
   m_ObjectHideFlags: 0
@@ -599,7 +595,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 47.34292
 --- !u!114 &1852986545243855547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,7 +609,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMain: {fileID: 1381705068474104343}
-  range_Atk: 1
 --- !u!1 &8048801866928691155
 GameObject:
   m_ObjectHideFlags: 0

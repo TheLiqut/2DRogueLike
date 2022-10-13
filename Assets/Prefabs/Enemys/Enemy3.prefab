@@ -246,21 +246,19 @@ MonoBehaviour:
   targetTrans: {fileID: 0}
   enemyShowUpEffect: {fileID: 6657521142272973144, guid: 5488177536c489a4db6808d90bbcd704,
     type: 3}
+  theRB: {fileID: 0}
   traking: 0
+  atking: 0
   canNotRotate: 0
-  attacking: 0
   antiTraking: 0
   hurting: 0
   isDead: 0
   isWin: 0
-  givePlayerExMin: 30
-  givePlayerExMax: 60
+  givePlayerExMin: 500
   enemyImageBody: {fileID: 1695490228545865533}
-  isFreezBoss: 0
-  isBoss: 0
-  playerWinPortal: {fileID: 0}
-  phase2Line: 0
-  sourcePhase2Line: 0
+  canNotIntoHurtState: 0
+  currentStateShow: 
+  deathActive: []
 --- !u!114 &7600698502150817911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,8 +280,8 @@ MonoBehaviour:
   enemyBullet: {fileID: 8784939957708941471, guid: a6cffba99942f9a4cb14d35093285251,
     type: 3}
   fireTrans: {fileID: 4523464462894750260}
-  gunSight: 30
-  firePower: 60
+  gunSight: 10
+  firePower: 20
 --- !u!95 &382944128464708302
 Animator:
   serializedVersion: 3
@@ -315,7 +313,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 100
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -375,8 +373,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5742860570194343245}
-  - component: {fileID: 1540537260816716982}
   - component: {fileID: 5569432717398070407}
+  - component: {fileID: 4680887688475415280}
   m_Layer: 12
   m_Name: AttackRange
   m_TagString: Untagged
@@ -398,20 +396,6 @@ Transform:
   m_Father: {fileID: 728382346540842314}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1540537260816716982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2459003902791433572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3ec4c2b4b0d2df4e868ba5fc7c2e8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMain: {fileID: 1381705068474104343}
-  range_Atk: 0
 --- !u!58 &5569432717398070407
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -428,6 +412,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4
+--- !u!114 &4680887688475415280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459003902791433572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d62fdceb4898041bf557211cb65136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMain: {fileID: 1381705068474104343}
 --- !u!1 &4819515766447951296
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,8 +515,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3150219272571009709}
-  - component: {fileID: 6192087797911267692}
   - component: {fileID: 1852986545243855547}
+  - component: {fileID: 6192087797911267692}
   m_Layer: 12
   m_Name: TrackRange
   m_TagString: Untagged
@@ -541,6 +538,19 @@ Transform:
   m_Father: {fileID: 728382346540842314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1852986545243855547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7334753577478697825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ec4c2b4b0d2df4e868ba5fc7c2e8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMain: {fileID: 1381705068474104343}
 --- !u!58 &6192087797911267692
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -557,20 +567,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5
---- !u!114 &1852986545243855547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7334753577478697825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3ec4c2b4b0d2df4e868ba5fc7c2e8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMain: {fileID: 1381705068474104343}
-  range_Atk: 1
 --- !u!1 &8048801866928691155
 GameObject:
   m_ObjectHideFlags: 0

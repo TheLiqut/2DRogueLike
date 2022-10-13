@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("=====设置关卡=====")]
     [Range(1,3)]public int currentDifficulty;
     public float UpdateDelayTime;
     public bool enemySeted;

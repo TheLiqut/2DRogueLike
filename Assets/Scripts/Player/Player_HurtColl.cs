@@ -9,14 +9,6 @@ public class Player_HurtColl : MonoBehaviour
     public bool isBullet;
     public GameObject hitEffect;
 
-    private void Update()
-    {
-        if (isBullet != true)
-        {
-            attackPower = 1+(Player_Main.instance.theLevel_AttackPower * 0.1f);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(isBullet == false)

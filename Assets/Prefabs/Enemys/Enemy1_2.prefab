@@ -286,21 +286,19 @@ MonoBehaviour:
   targetTrans: {fileID: 0}
   enemyShowUpEffect: {fileID: 6657521142272973144, guid: 5488177536c489a4db6808d90bbcd704,
     type: 3}
+  theRB: {fileID: 0}
   traking: 0
+  atking: 0
   canNotRotate: 0
-  attacking: 0
   antiTraking: 0
   hurting: 0
   isDead: 0
   isWin: 0
-  givePlayerExMin: 20
-  givePlayerExMax: 40
+  givePlayerExMin: 500
   enemyImageBody: {fileID: 1695490228545865533}
-  isFreezBoss: 0
-  isBoss: 0
-  playerWinPortal: {fileID: 0}
-  phase2Line: 0
-  sourcePhase2Line: 0
+  canNotIntoHurtState: 0
+  currentStateShow: 
+  deathActive: []
 --- !u!95 &382944128464708302
 Animator:
   serializedVersion: 3
@@ -332,7 +330,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 100
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -376,8 +374,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5742860570194343245}
-  - component: {fileID: 1540537260816716982}
   - component: {fileID: 1405373106519538009}
+  - component: {fileID: 9208277081356540034}
   m_Layer: 12
   m_Name: AttackRange
   m_TagString: Untagged
@@ -399,20 +397,6 @@ Transform:
   m_Father: {fileID: 728382346540842314}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1540537260816716982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2459003902791433572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3ec4c2b4b0d2df4e868ba5fc7c2e8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMain: {fileID: 1381705068474104343}
-  range_Atk: 0
 --- !u!61 &1405373106519538009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -426,7 +410,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.028029442, y: -0.18499446}
+  m_Offset: {x: 0.15480316, y: -0.18499446}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -437,8 +421,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4730463, y: 0.6300111}
+  m_Size: {x: 0.72659373, y: 0.6300111}
   m_EdgeRadius: 0
+--- !u!114 &9208277081356540034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2459003902791433572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d62fdceb4898041bf557211cb65136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMain: {fileID: 1381705068474104343}
 --- !u!1 &4819515766447951296
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +578,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMain: {fileID: 1381705068474104343}
-  range_Atk: 1
 --- !u!1 &8048801866928691155
 GameObject:
   m_ObjectHideFlags: 0

@@ -4016,6 +4016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnterNextScene
       objectReference: {fileID: 0}
+    - target: {fileID: 1864905703983004694, guid: 1452edd2b78000c4f8e232315772f020,
+        type: 3}
+      propertyPath: fileMain
+      value: 
+      objectReference: {fileID: 4900000, guid: 267101bf892b2f84eb9cf0a4ed767d80, type: 3}
     - target: {fileID: 2643468921495622112, guid: 1452edd2b78000c4f8e232315772f020,
         type: 3}
       propertyPath: m_Text

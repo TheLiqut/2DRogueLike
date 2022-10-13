@@ -5032,6 +5032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySeter
       objectReference: {fileID: 0}
+    - target: {fileID: 5736603321915385813, guid: e0bc6584c0ee57f4a81687a130a5fd96,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6029480001808999066, guid: e0bc6584c0ee57f4a81687a130a5fd96,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -19,9 +19,9 @@ public class SaveManager : MonoBehaviour
         Save save = new Save();
         save.Ex = player.playerEx;
         save.Level_Hp = player.theLevel_Hp;
-        save.Level_AttackPower = player.theLevel_AttackPower;
-        save.Level_ShootSpeed = player.theLevel_ShootSpeed;
-        save.Level_ShootPower = player.theLevel_ShootPower;
+       // save.Level_AttackPower = player.theLevel_AttackPower;
+        //save.Level_ShootSpeed = player.theLevel_ShootSpeed;
+        //save.Level_ShootPower = player.theLevel_ShootPower;
 
         return save;
     }
@@ -52,8 +52,8 @@ public class SaveManager : MonoBehaviour
     {
         player.playerEx = save.Ex;
         player.theLevel_Hp = save.Level_Hp;
-        player.theLevel_AttackPower = save.Level_AttackPower;
-        player.theLevel_ShootSpeed = save.Level_ShootSpeed;
-        player.theLevel_ShootPower = save.Level_ShootPower;
+        //player.theLevel_AttackPower = save.Level_AttackPower;
+        //player.theLevel_ShootSpeed = save.Level_ShootSpeed;
+        //player.theLevel_ShootPower = save.Level_ShootPower;
     }
 }

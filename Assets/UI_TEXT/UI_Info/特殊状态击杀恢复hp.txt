@@ -1,0 +1,2 @@
+击杀恢复HP
+Kill Recovery HP

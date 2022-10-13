@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class Player_UI : MonoBehaviour
 {
     private Player_Main player;
-    private bool started;
     public Text showHpText;
     public Text showExText;
+    public Text showWpText;
+    public Text showSpeText;
     public bool fighting;
     private void OnEnable()
     {
@@ -17,29 +18,12 @@ public class Player_UI : MonoBehaviour
     void Start()
     {
         player = Player_Main.instance;
-        Main_EventCenter.instance.onPlayerHurt += UpdatePlayerHp;
-        Main_EventCenter.instance.onPlayerExUp += UpdatePlayerEx;
-        //showExText.text = player.playerEx.ToString();
     }
-
-    private void Update()
+    private void FixedUpdate()
     {
         showHpText.text = player.theHp.ToString();
-        if (started == false)
-        {
-            //showHpText.text = player.theHp.ToString();
-            showExText.text = player.playerEx.ToString();
-            started = true;
-        }
-    }
-
-    public void UpdatePlayerHp(float _f)
-    {
-        showHpText.text = _f.ToString();
-    }
-
-    public void UpdatePlayerEx(int _i)
-    {
         showExText.text = player.playerEx.ToString();
+        showWpText.text = player.usingWeapenName;
+        showSpeText.text = Global_GameManager.instance.speStateForPlayer_Now;
     }
 }

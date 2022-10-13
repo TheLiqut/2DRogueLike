@@ -1,0 +1,2 @@
+恢复生命值
+Restore HP

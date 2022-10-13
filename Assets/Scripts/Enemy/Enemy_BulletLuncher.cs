@@ -42,7 +42,7 @@ public class Enemy_BulletLuncher : MonoBehaviour
     {
         if (targetPlayer != null)
         {
-                GameObject bullet = Instantiate(enemyBullet, fireTrans.position, fireTrans.rotation * Quaternion.AngleAxis(Random.Range(0, gunSight), Vector3.forward));
+                GameObject bullet = Instantiate(enemyBullet, fireTrans.position, fireTrans.rotation * Quaternion.AngleAxis(Random.Range(-gunSight, gunSight), Vector3.forward));
                 bullet.GetComponent<Rigidbody2D>().AddForce(bullet.transform.right * firePower, ForceMode2D.Impulse);
         }
     }

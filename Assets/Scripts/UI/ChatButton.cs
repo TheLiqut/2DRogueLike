@@ -10,7 +10,8 @@ public class ChatButton : MonoBehaviour
     public Text infoText;
     public string infoMain;
     [Header("对话文件")]
-    public TextAsset textFile;
+    //public TextAsset textFile;
+    public List<TextAsset> textFiles = new List<TextAsset>();
 
     private void Start()
     {
@@ -40,7 +41,7 @@ public class ChatButton : MonoBehaviour
     {
         if (startShow == true && Input.GetButtonDown("Check"))
         {
-            Main_EventCenter.instance.E_OnStartChat(textFile);
+            Main_EventCenter.instance.E_OnStartChat(textFiles[Global_GameManager.instance.usingLanguage]);
             showInfo.SetActive(false);
         }
     }
